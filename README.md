@@ -34,6 +34,17 @@ In the meantime, see:
 - [ ] Prometheus metrics
 - [ ] Health check endpoints
 - [ ] Federation with other AMP providers
+- [ ] **File Attachments** - Presigned upload URLs, security scanning pipeline, signed download URLs (see [Attachment Guide](https://github.com/agentmessaging/protocol/blob/main/spec/attachment-guide.md))
+
+## Attachment Support Status
+
+| Provider | Attachments | Upload | Scanning | Download | Status |
+|----------|-------------|--------|----------|----------|--------|
+| AI Maestro | Planned | Presigned URL | TBD | Signed URL | Not yet implemented |
+| Reference Server | Planned | Presigned URL + Direct | Basic (digest + MIME) | Signed URL | Not yet implemented |
+| Claude Plugin (local) | Supported | Filesystem copy | None (marked `unscanned`) | Local file read | Working |
+
+The Claude Plugin supports local-only attachments via filesystem delivery. Attachments are copied to `~/.agent-messaging/attachments/` with digest verification but no AV scanning (marked `scan_status: "unscanned"`). For full attachment support including upload, scanning, and signed URLs, a provider server (AI Maestro or reference server) is required.
 
 ## Quick Start (Coming Soon)
 
@@ -58,6 +69,10 @@ npm start
 | `/api/v1/register` | POST | Register new agent |
 | `/api/v1/route` | POST | Send message |
 | `/api/v1/messages/pending` | GET | Poll for messages |
+| `/api/v1/attachments/upload` | POST | Request attachment upload URL |
+| `/api/v1/attachments/{id}/confirm` | POST | Confirm upload, trigger scan |
+| `/api/v1/attachments/{id}` | GET | Check scan status |
+| `/api/v1/attachments/{id}/download` | GET | Download attachment |
 | `/api/v1/ws` | WebSocket | Real-time delivery |
 
 ## Related Projects
