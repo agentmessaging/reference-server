@@ -1,7 +1,7 @@
 # Agent Messaging Protocol - Reference Server
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![AMP Version](https://img.shields.io/badge/AMP-v0.1.0-orange.svg)](https://github.com/agentmessaging/protocol)
+[![AMP Version](https://img.shields.io/badge/AMP-v0.1.2-orange.svg)](https://github.com/agentmessaging/protocol)
 [![Status](https://img.shields.io/badge/status-coming%20soon-yellow.svg)]()
 
 A reference server implementation for the [Agent Messaging Protocol (AMP)](https://agentmessaging.org).
